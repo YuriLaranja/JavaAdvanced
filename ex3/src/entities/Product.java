@@ -1,5 +1,7 @@
 package entities;
 
+import exceptions.ProductException;
+
 public class Product {
 	private String name;
 	private Double price;
@@ -32,5 +34,11 @@ public class Product {
 	public String priceTag() {
 		String c = name+ " $ "+price;
 		return c;
+	}
+	public void validateProduct(Double price) {
+		if(price<=0) {
+			throw new ProductException("Price invalid");
+		}
+	
 	}
 }
